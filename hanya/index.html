@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="韩雅 - 专业韩式美容与抗衰老护理指南。提供韩式皮肤管理、面部抗衰、眼部护理及韩妆教学。探索适合亚洲肤质的韩式护肤流程与产品推荐。">
+    <meta name="keywords" content="韩雅, 韩式皮肤管理, 抗衰老, 美容护肤, 韩妆教学">
+    <title>韩雅 - 韩式皮肤管理与抗衰老护理指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d4a373; /* 温暖的韩式陶土色 */
+            --secondary-color: #faedcd; /* 浅米色背景 */
+            --accent-color: #ccd5ae; /* 清新的绿色点缀 */
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #fdfbf7;
+            --white: #ffffff;
+            --spacing-unit: 1rem;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #bc8a5e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #fff 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .hero-text .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            height: 500px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            background-color: var(--secondary-color);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background-color: #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        /* Treatment Process */
+        .process {
+            padding: 5rem 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            position: relative;
+        }
+
+        .step-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--white);
+            box-shadow: 0 2px 10px rgba(212, 163, 115, 0.3);
+        }
+
+        .step-item h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery / Showcase */
+        .showcase {
+            padding: 5rem 0;
+            background-color: var(--secondary-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            aspect-ratio: 4/5;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: var(--white);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem 0;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-main);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-answer p {
+            padding-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .hero-text p {
+                margin: 0 auto 2rem;
+            }
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.74 5.74a6 6 0 1 1-8.48 8.48A6 6 0 0 1 12 2.69z"></path></svg>
+                    韩雅
+                </div>
+                <div class="nav-links">
+                    <a href="#home">首页</a>
+                    <a href="#process">护理流程</a>
+                    <a href="#treatments">特色项目</a>
+                    <a href="#gallery">案例展示</a>
+                    <a href="#faq">常见问题</a>
+                    <a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1.5rem; color: white;">预约咨询</a>
+                </div>
+                <div class="mobile-menu-btn">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>探索 <span class="highlight">韩雅</span> 的肌肤新生之旅</h1>
+                    <p>融合韩国顶尖皮肤管理技术与自然护肤理念，为您定制专属的抗衰老与焕肤方案。体验精细化护理，找回肌肤的健康光泽。</p>
+                    <a href="#treatments" class="btn btn-primary">查看护理项目</a>
+                    <a href="#process" class="btn" style="border: 2px solid var(--primary-color); color: var(--primary-color); margin-left: 1rem;">了解流程</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/koreanbeauty1/600/500" alt="韩式美容护理场景" width="600" height="500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>为什么选择韩雅？</h2>
+                <p>专注于亚洲肤质的护理需求，提供安全、科学且有效的美容服务</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>韩式精细管理</h3>
+                    <p>采用韩国流行的一对一皮肤管理流程，针对色斑、痘痘、细纹等具体问题进行精准护理。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <h3>天然植物成分</h3>
+                    <p>精选高纯度韩国原装进口植物精华，温和不刺激，适合敏感肌及各类肤质使用。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>科学仪器辅助</h3>
+                    <p>结合微电流、激光及超声导入技术，提升护肤品吸收效率，加速肌肤修复与代谢。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>标准护理流程</h2>
+                <p>从清洁到舒缓，每一步都经过精心设计</p>
+            </div>
+            <div class="process-steps">
+                <div class="step-item">
+                    <div class="step-number">01</div>
+                    <h3>深层清洁</h3>
+                    <p>卸妆与深层洁面，去除毛孔内污垢与油脂，为后续吸收做准备。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">02</div>
+                    <h3>活肤导入</h3>
+                    <p>使用韩国专利仪器，将营养精华直接导入真皮层，激活细胞活力。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">03</div>
+                    <h3>针对性护理</h3>
+                    <p>根据皮肤状况进行去角质、补水或修复处理，解决具体肌肤困扰。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">04</div>
+                    <h3>舒缓定型</h3>
+                    <p>敷上面膜并进行面部按摩，最后涂抹防晒或修复霜，完成护理。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatments Section -->
+    <section id="treatments" style="background-color: var(--white); padding: 5rem 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>热门特色项目</h2>
+                <p>针对不同肌肤需求的专业解决方案</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card" style="text-align: left; background: #fff; border: 1px solid #eee;">
+                    <h4>💎 水光补水管理</h4>
+                    <p style="margin: 1rem 0; color: var(--text-light);">深层补水锁水，改善干燥粗糙，令肌肤水润饱满，恢复透亮感。</p>
+                    <a href="#" style="color: var(--primary-color); font-weight: 600;">详情 &rarr;</a>
+                </article>
+                <article class="feature-card" style="text-align: left; background: #fff; border: 1px solid #eee;">
+                    <h4>✅ 韩式祛痘管理</h4>
+                    <p style="margin: 1rem 0; color: var(--text-light);">控油消炎，疏通毛孔，抑制痘痘再生，建立健康皮肤屏障。</p>
+                    <a href="#" style="color: var(--primary-color); font-weight: 600;">详情 &rarr;</a>
+                </article>
+                <article class="feature-card" style="text-align: left; background: #fff; border: 1px solid #eee;">
+                    <h4>👁️ 眼部抗衰管理</h4>
+                    <p style="margin: 1rem 0; color: var(--text-light);">淡化黑眼圈与眼袋，紧致眼周肌肤，改善细纹，重现年轻神采。</p>
+                    <a href="#" style="color: var(--primary-color); font-weight: 600;">详情 &rarr;</a>
+                </article>
+                <article class="feature-card" style="text-align: left; background: #fff; border: 1px solid #eee;">
+                    <h4>🌙 舒缓敏感管理</h4>
+                    <p style="margin: 1rem 0; color: var(--text-light);">修护受损屏障，舒缓泛红刺痛，增强皮肤抵抗力，恢复健康状态。</p>
+                    <a href="#" style="color: var(--primary-color); font-weight: 600;">详情 &rarr;</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="showcase">
+        <div class="container">
+            <div class="section-title">
+                <h2>护理前后对比</h2>
+                <p>见证肌肤的蜕变过程</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/skincare2/400/500" alt="护理案例1">
+                    <div class="gallery-overlay">
+                        <h3>水光焕肤前后</h3>
+                        <p>持续护理3次后，肤质显著改善</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/skincare3/400/500" alt="护理案例2">
+                    <div class="gallery-overlay">
+                        <h3>痘痘肌修复</h3>
+                        <p>炎症消退，毛孔细腻度提升</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/skincare4/400/500" alt="护理案例3">
+                    <div class="gallery-overlay">
+                        <h3>眼周年轻化</h3>
+                        <p>眼袋淡化，眼周紧致度增加</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">初次做皮肤管理需要注意什么？</button>
+                    <div class="faq-answer">
+                        <p>初次体验建议选择基础补水或舒缓类项目。护理前请卸妆洁面，避免使用刺激性护肤品，护理后注意防晒和补水。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">皮肤管理会有痛感吗？</button>
+                    <div class="faq-answer">
+                        <p>大多数韩式皮肤管理过程舒适无痛或仅有轻微刺痛感，仪器导入时会有温热感，属于正常现象。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">多久做一次效果最好？</button>
+                    <div class="faq-answer">
+                        <p>建议每1-2周进行一次，连续4-6次为一个疗程，以达到最佳改善效果。日常建议每周1-2次居家保养。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">敏感肌可以使用韩雅的产品吗？</button>
+                    <div class="faq-answer">
+                        <p>韩雅所有产品均选用低敏配方，但敏感肌在护理前请务必告知咨询师，我们会为您调整护理方案。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem; color: #fff;">韩雅</div>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        致力于将韩国先进的皮肤管理理念引入，为每一位爱美人士提供专业、安全、舒适的变美体验。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">回到首页</a></li>
+                        <li><a href="#process">护理流程</a></li>
+                        <li><a href="#treatments">项目介绍</a></li>
+                        <li><a href="#gallery">案例展示</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>📍 地址：XX市XX区美容街88号</li>
+                        <li>📞 电话：400-123-4567</li>
+                        <li>📧 邮箱：contact@hanya.com</li>
+                        <li>⏰ 营业时间：10:00 - 20:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 韩雅皮肤管理中心 版权所有.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                
+                // Toggle active state
+                button.classList.toggle('active');
+                
+                // Toggle max-height for smooth animation
+                if (button.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = 0;
+                }
+
+                // Close other items (optional, for accordion behavior)
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.querySelector('.faq-question').classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = 0;
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
