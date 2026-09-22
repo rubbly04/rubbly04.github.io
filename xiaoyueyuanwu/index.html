@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>晓月圆舞曲-经典古典音乐赏析与曲谱资源库</title>
+    <meta name="description" content="晓月圆舞曲专题页面，提供柴可夫斯基《花之圆舞曲》的背景介绍、乐曲赏析、曲谱下载及演奏技巧指南。">
+    <meta name="keywords" content="晓月圆舞曲, 花之圆舞曲, 柴可夫斯基, 古典音乐, 钢琴曲谱, 音乐赏析">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-hover: 0 10px 15px rgba(0,0,0,0.1);
+            --font-serif: "Songti SC", "SimSun", "Times New Roman", serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #f1c40f;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #a93226;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .about-image {
+            background-color: #ddd;
+            border-radius: var(--border-radius);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Features/Details */
+        .features {
+            background-color: #fff;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: var(--bg-color);
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Score Download Section */
+        .score-section {
+            background-color: #f1f2f6;
+        }
+
+        .score-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .score-item {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .score-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .score-info span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .score-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-outline {
+            padding: 0.5rem 1.2rem;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Audio Player */
+        .player-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 1rem;
+            height: 40px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: #fff;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: #fafafa;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1.2rem;
+            font-family: var(--font-serif);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #f1c40f;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .score-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .score-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>♪</span> 晓月圆舞曲
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#about">乐曲介绍</a></li>
+                    <li><a href="#features">赏析要点</a></li>
+                    <li><a href="#scores">曲谱下载</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>晓月圆舞曲</h1>
+                <p class="subtitle">柴可夫斯基《花之圆舞曲》深度解析与钢琴演奏指南</p>
+                <a href="#scores" class="btn">开始阅读与下载</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <div class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+                            <h2>关于《花之圆舞曲》</h2>
+                            <p>古典音乐中的浪漫经典</p>
+                        </div>
+                        <p><strong>《花之圆舞曲》（Waltz of the Flowers）</strong>，亦常被乐迷昵称为“晓月圆舞曲”，是俄国作曲家彼得·伊里奇·柴可夫斯基创作的著名管弦乐曲。它出自柴可夫斯基的芭蕾舞剧《胡桃夹子》的第二幕，是该剧中最为脍炙人口的舞曲之一。</p>
+                        <p>这首圆舞曲以华丽、优雅的旋律著称，描绘了胡桃夹子王子带领克拉拉和士兵们进入糖果王国的盛大场景。音乐中充满了异域风情与梦幻色彩，是学习古典圆舞曲体裁和练习配器色彩的绝佳范本。</p>
+                    </div>
+                    <div class="about-image">
+                        <!-- 使用占位图，实际应用中可替换为乐谱封面或相关插画 -->
+                        <img src="https://picsum.photos/seed/classicalmusic/600/400" alt="古典音乐会场景">
+                        <div class="about-badge">来源：古典音乐资料库</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>赏析要点</h2>
+                    <p>理解乐曲结构与情感</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <span class="feature-icon">🎼</span>
+                        <h3>三段体结构</h3>
+                        <p>乐曲遵循典型的圆舞曲三段体结构。第一段主题优美流畅，展现序奏的华丽；第二段旋律更为宽广，富有歌唱性；第三段则是第一段的再现，在高潮中结束。</p>
+                    </article>
+                    <article class="feature-card">
+                        <span class="feature-icon">🎹</span>
+                        <h3>钢琴改编版</h3>
+                        <p>对于钢琴演奏者而言，这首曲子通常被改编为不同难度的版本。从简单的初级练习曲到高难度的音乐会独奏曲，其复调织体和音色控制是检验演奏技巧的重要标准。</p>
+                    </article>
+                    <article class="feature-card">
+                        <span class="feature-icon">❄️</span>
+                        <h3>冬之圆舞曲</h3>
+                        <p>在芭蕾舞剧的语境下，它与著名的《雪花圆舞曲》形成了鲜明的季节对比。《花之圆舞曲》象征着春日与庆典，旋律轻盈，充满了生命力。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Score Download Section -->
+        <section id="scores" class="score-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>曲谱资源</h2>
+                    <p>精选版本下载与演奏指南</p>
+                </div>
+                
+                <div class="score-list">
+                    <div class="score-item">
+                        <div class="score-info">
+                            <h3>柴可夫斯基《花之圆舞曲》钢琴独奏版</h3>
+                            <span>难度：中高级 | 版本：李斯特改编版</span>
+                        </div>
+                        <div class="score-actions">
+                            <a href="#" class="btn-outline">查看详情</a>
+                            <a href="#" class="btn-outline">试听片段</a>
+                        </div>
+                    </div>
+
+                    <div class="score-item">
+                        <div class="score-info">
+                            <h3>《花之圆舞曲》管弦乐总谱</h3>
+                            <span>格式：PDF | 适合：指挥与编曲学习</span>
+                        </div>
+                        <div class="score-actions">
+                            <a href="#" class="btn-outline">查看详情</a>
+                            <a href="#" class="btn-outline">下载总谱</a>
+                        </div>
+                    </div>
+
+                    <div class="score-item">
+                        <div class="score-info">
+                            <h3>简易版《花之圆舞曲》入门练习</h3>
+                            <span>难度：初级 | 适合：钢琴考级预备</span>
+                        </div>
+                        <div class="score-actions">
+                            <a href="#" class="btn-outline">查看详情</a>
+                            <a href="#" class="btn-outline">下载简谱</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audio Player Placeholder -->
+                <div class="player-container" style="margin-top: 3rem;">
+                    <h3>在线试听</h3>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">使用浏览器自带的音频播放器，建议佩戴耳机体验。</p>
+                    <!-- 静态音频占位符 -->
+                    <audio controls>
+                        <source src="#" type="audio/mpeg">
+                        您的浏览器不支持音频元素。
+                    </audio>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题</h2>
+                    <p>演奏与欣赏中的疑问解答</p>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">《花之圆舞曲》是柴可夫斯基的作品吗？</div>
+                        <div class="faq-answer">
+                            <p>是的，这是柴可夫斯基最著名的管弦乐作品之一。它出自芭蕾舞剧《胡桃夹子》，是该剧第二幕的结束曲。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">适合初学者演奏吗？</div>
+                        <div class="faq-answer">
+                            <p>原版管弦乐作品对于初学者来说难度较大，但市面上有大量针对不同水平的钢琴改编版（如简易版、车尔尼风格改编版），初学者可以选择适合自己程度的版本进行练习。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何表现圆舞曲的“三拍子”节奏？</div>
+                        <div class="faq-answer">
+                            <p>演奏时要注意强弱弱的规律，重心随节奏起伏。左手伴奏通常使用分解和弦，右手旋律要连贯流畅，体现出舞蹈的旋转感。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于晓月圆舞曲</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        本站致力于提供古典音乐资源的整理与分享，特别是柴可夫斯基《花之圆舞曲》相关的曲谱、赏析与演奏指南。让更多人领略古典音乐的魅力。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#about">乐曲介绍</a></li>
+                        <li><a href="#features">演奏技巧</a></li>
+                        <li><a href="#scores">曲谱下载</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源分类</h4>
+                    <ul>
+                        <li><a href="#">钢琴谱库</a></li>
+                        <li><a href="#">管弦乐总谱</a></li>
+                        <li><a href="#">教学视频</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 晓月圆舞曲专题页. 保留所有权利. 本站内容仅供学习交流使用。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
