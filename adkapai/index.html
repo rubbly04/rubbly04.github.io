@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AD卡牌攻略站提供AD卡牌大师出装推荐、符文天赋、对线技巧、连招教学及游戏视频解说。汇集高分段玩家心得，助你轻松上分。">
+    <meta name="keywords" content="AD卡牌,卡牌大师,英雄联盟,卡牌出装,卡牌攻略">
+    <title>AD卡牌-英雄联盟卡牌大师高玩出装与攻略指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00d2ff;
+            --secondary-color: #3a7bd5;
+            --accent-color: #ffcc00;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f4f6f9;
+            --bg-card: #ffffff;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f0f2f5;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+            width: 150px;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+        }
+
+        /* Left Column */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Guide Cards */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .card-tag {
+            background: #f0f7ff;
+            color: var(--secondary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Build Section */
+        .build-container {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .build-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .build-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .build-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #eee;
+            margin-right: 16px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .build-info {
+            flex-grow: 1;
+        }
+
+        .build-name {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .build-desc {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .build-rank {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        /* Right Column */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .rank-list {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .rank-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-right: 12px;
+            color: #666;
+        }
+
+        .rank-item:nth-child(1) .rank-num { background: #ffcc00; color: #fff; }
+        .rank-item:nth-child(2) .rank-num { background: #b0b0b0; color: #fff; }
+        .rank-item:nth-child(3) .rank-num { background: #cd7f32; color: #fff; }
+
+        .rank-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-q {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .faq-a {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .build-row {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--secondary-color);">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>AD卡牌</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">出装推荐</a></li>
+                    <li><a href="#">符文天赋</a></li>
+                    <li><a href="#">连招教学</a></li>
+                    <li><a href="#">视频解说</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索攻略...">
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>AD卡牌大师</h1>
+        <p>掌握红牌控制与蓝牌伤害的艺术。从新手到高玩，为您提供最全面的AD卡牌出装、符文搭配及实战技巧。</p>
+        <div class="hero-tags">
+            <span class="tag">单带牵制</span>
+            <span class="tag">蓝牌消耗</span>
+            <span class="tag">传送支援</span>
+            <span class="tag">滚雪球</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Featured Builds -->
+            <section>
+                <h2 class="section-title">最新出装方案</h2>
+                <div class="guide-grid">
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/card1/400/250" alt="AD卡牌出装" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">中单AD卡牌：极致伤害流</h3>
+                            <p class="card-desc">放弃辅助装，全输出装，利用蓝牌高频消耗，配合传送快速转线，滚起雪球。</p>
+                            <div class="card-meta">
+                                <span class="card-tag">中单</span>
+                                <span>阅读 2.3k</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/card2/400/250" alt="AD卡牌打野" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">打野AD卡牌：节奏大师</h3>
+                            <p class="card-desc">利用W技能刷野效率高，红牌留人能力强，快速入侵敌方野区。</p>
+                            <div class="card-meta">
+                                <span class="card-tag">打野</span>
+                                <span>阅读 1.8k</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/card3/400/250" alt="AD卡牌上单" class="card-img">
+                        <div class="card-body">
+                            <h3 class="card-title">上单AD卡牌：单带牵制</h3>
+                            <p class="card-desc">Q技能超远距离，配合传送机制，让对手头痛的单带英雄。</p>
+                            <div class="card-meta">
+                                <span class="card-tag">上单</span>
+                                <span>阅读 3.1k</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Detailed Build Section -->
+            <section>
+                <h2 class="section-title">核心出装推荐</h2>
+                <div class="build-container">
+                    <div class="build-row">
+                        <div class="build-icon">1</div>
+                        <div class="build-info">
+                            <div class="build-name">海克斯科技枪刃</div>
+                            <div class="build-desc">AD卡牌的核心装备，提供法术强度、攻击力和吸血，被动效果增强推线与消耗能力。</div>
+                        </div>
+                        <div class="build-rank">必出</div>
+                    </div>
+                    <div class="build-row">
+                        <div class="build-icon">2</div>
+                        <div class="build-info">
+                            <div class="build-name">卢安娜的飓风</div>
+                            <div class="build-desc">配合被动技能，飓风触发额外攻击，极大提升清线速度和爆发伤害。</div>
+                        </div>
+                        <div class="build-rank">推荐</div>
+                    </div>
+                    <div class="build-row">
+                        <div class="build-icon">3</div>
+                        <div class="build-info">
+                            <div class="build-name">灭世者的死亡之帽</div>
+                            <div class="build-desc">大幅提升法术强度，是后期伤害的保证。</div>
+                        </div>
+                        <div class="build-rank">后期</div>
+                    </div>
+                    <div class="build-row">
+                        <div class="build-icon">4</div>
+                        <div class="build-info">
+                            <div class="build-name">斯特拉克的挑战护手</div>
+                            <div class="build-desc">提供生命值和护盾，增加容错率，防止被秒杀。</div>
+                        </div>
+                        <div class="build-rank">保命</div>
+                    </div>
+                    <div class="build-row">
+                        <div class="build-icon">5</div>
+                        <div class="build-info">
+                            <div class="build-name">纳什之牙</div>
+                            <div class="build-desc">增加攻击速度和法术强度，被动减少敌方护甲，提升持续输出。</div>
+                        </div>
+                        <div class="build-rank">可选</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section>
+                <h2 class="section-title">常见问题解答</h2>
+                <div class="faq-item">
+                    <div class="faq-q">AD卡牌为什么比AP卡牌少见？</div>
+                    <div class="faq-a">AP卡牌拥有稳定的W技能回蓝和团控能力，而AD卡牌虽然爆发高，但缺乏持续作战能力和回复能力，且容易被针对。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">AD卡牌前期怎么对线？</div>
+                    <div class="faq-a">前期利用蓝牌进行远程消耗，不要贪刀。Q技能是主要伤害来源，尽量在兵线安全时使用。保持等级优势。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">AD卡牌适合什么符文？</div>
+                    <div class="faq-a">推荐精密系（征服者或电刑）与主宰系（电刑）的混合，主系点出气定神闲和致命一击，副系点出骸骨镀层和复苏之风。</div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="rank-list">
+                <h2 class="section-title" style="font-size: 1.2rem; margin-bottom: 15px;">胜率排名</h2>
+                <div class="rank-item">
+                    <div class="rank-num">1</div>
+                    <div class="rank-name">红牌控制流</div>
+                </div>
+                <div class="rank-item">
+                    <div class="rank-num">2</div>
+                    <div class="rank-name">蓝牌消耗流</div>
+                </div>
+                <div class="rank-item">
+                    <div class="rank-num">3</div>
+                    <div class="rank-name">传送滚雪球</div>
+                </div>
+                <div class="rank-item">
+                    <div class="rank-num">4</div>
+                    <div class="rank-name">Q闪背牌</div>
+                </div>
+                <div class="rank-item">
+                    <div class="rank-num">5</div>
+                    <div class="rank-name">塔下反杀流</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">观看教学视频</h3>
+                    <p class="card-desc">点击下方链接观看大神直播回放及连招教学，学习如何精准控制红牌。</p>
+                    <a href="#" style="color: var(--primary-color); font-weight: 600; font-size: 14px; display: inline-block; margin-top: 10px;">查看视频 &rarr;</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于AD卡牌</h4>
+                <ul>
+                    <li><a href="#">游戏背景</a></li>
+                    <li><a href="#">技能介绍</a></li>
+                    <li><a href="#">皮肤大全</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>攻略分类</h4>
+                <ul>
+                    <li><a href="#">中单出装</a></li>
+                    <li><a href="#">打野路线</a></li>
+                    <li><a href="#">符文搭配</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>社区交流</h4>
+                <ul>
+                    <li><a href="#">玩家论坛</a></li>
+                    <li><a href="#">战绩查询</a></li>
+                    <li><a href="#">组队开黑</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li><a href="#">投稿建议</a></li>
+                    <li><a href="#">商务合作</a></li>
+                    <li><a href="#">侵权举报</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 AD卡牌攻略站. All Rights Reserved. 本站内容仅供学习交流使用.
+        </div>
+    </footer>
+
+</body>
+</html>
