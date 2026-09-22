@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="武魂影月 - 专注于东方玄幻与暗夜美学的沉浸式阅读体验。提供最新章节、深度角色解析、同人创作及玄幻世界观指南。">
+    <meta name="keywords" content="武魂影月,玄幻小说,东方玄幻,暗夜美学,沉浸式阅读">
+    <title>武魂影月-东方玄幻与暗夜美学的沉浸式阅读指南</title>
+    <style>
+        :root {
+            --bg-deep: #0b0c15;
+            --bg-card: #151621;
+            --bg-card-hover: #1f2133;
+            --primary: #8a2be2; /* 紫罗兰 */
+            --accent: #00d2ff;  /* 青色 */
+            --text-main: #e0e0e0;
+            --text-muted: #8b9bb4;
+            --border: #2a2d3f;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --font-serif: "Songti SC", "Noto Serif SC", serif;
+            --font-sans: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        /* Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        /* Header */
+        header {
+            background: rgba(11, 12, 21, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--text-main), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .search-btn {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            border-color: var(--primary);
+            background: rgba(138, 43, 226, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 30%, rgba(138, 43, 226, 0.3) 0%, rgba(11, 12, 21, 0.9) 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(90deg, var(--primary), #5b21b6);
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.6);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 0;
+            margin-bottom: 4rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Content Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Book List */
+        .book-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            transition: transform 0.3s, border-color 0.3s;
+            margin-bottom: 1.5rem;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .book-cover {
+            width: 160px;
+            height: 220px;
+            background: #2a2d3f;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .book-card:hover .book-cover img {
+            opacity: 1;
+        }
+
+        .book-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .book-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+        }
+
+        .tag.hot {
+            color: #ff4757;
+            background: rgba(255, 71, 87, 0.1);
+        }
+
+        .tag.new {
+            color: var(--accent);
+            background: rgba(0, 210, 255, 0.1);
+        }
+
+        .book-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .book-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .read-btn {
+            padding: 0.5rem 1.2rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text-main);
+            transition: all 0.3s;
+        }
+
+        .read-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .rank-list {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .rank-header {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .rank-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        .rank-num.top-1 { color: #ffd700; }
+        .rank-num.top-2 { color: #c0c0c0; }
+        .rank-num.top-3 { color: #cd7f32; }
+        .rank-num.normal { color: var(--text-muted); }
+
+        .rank-title {
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .rank-score {
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        /* Character Section */
+        .characters {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .char-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .char-card:hover {
+            border-color: var(--primary);
+            background: var(--bg-card-hover);
+        }
+
+        .char-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            border: 2px solid var(--border);
+            padding: 3px;
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-deep));
+        }
+
+        .char-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .char-name {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .char-role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background: #05060a;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand h4 {
+            color: var(--text-main);
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h5 {
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">武魂影月</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">玄幻小说</a></li>
+                    <li><a href="#">角色图鉴</a></li>
+                    <li><a href="#">同人创作</a></li>
+                    <li><a href="#">世界观</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn">搜索作品</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>于暗夜中觉醒，以武魂映照苍穹</h1>
+                <p>欢迎来到《武魂影月》的世界。这是一个关于觉醒、羁绊与宿命的故事。探索独特的“影月”武魂体系，感受东方玄幻独有的美学意境。</p>
+                <a href="#latest" class="cta-btn">开始阅读</a>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="container">
+            <div class="stats-bar">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>12.5w</h3>
+                        <p>累计阅读</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>8900</h3>
+                        <p>活跃书友</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>45</h3>
+                        <p>已完结章节</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4.9</h3>
+                        <p>读者评分</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="container main-layout" id="latest">
+            <!-- Book List -->
+            <section>
+                <h2 class="section-title">最新章节</h2>
+                
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="https://picsum.photos/seed/hero1/300/400" alt="封面">
+                    </div>
+                    <div class="book-info">
+                        <div>
+                            <h3 class="book-title">第一章：影月觉醒</h3>
+                            <div class="book-tags">
+                                <span class="tag hot">热门</span>
+                                <span class="tag new">最新</span>
+                                <span class="tag">玄幻</span>
+                            </div>
+                            <p class="book-desc">在苍澜大陆的边缘，少年林渊意外触碰了古老的石碑，沉睡千年的武魂“影月”在暗夜中苏醒，命运的齿轮开始转动...</p>
+                        </div>
+                        <div class="book-meta">
+                            <span>更新于：2小时前</span>
+                            <button class="read-btn">阅读全文</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="https://picsum.photos/seed/hero2/300/400" alt="封面">
+                    </div>
+                    <div class="book-info">
+                        <div>
+                            <h3 class="book-title">第二章：宗门试炼</h3>
+                            <div class="book-tags">
+                                <span class="tag">玄幻</span>
+                                <span class="tag">热血</span>
+                            </div>
+                            <p class="book-desc">进入玄天宗的第一天，林渊不仅要面对高手的压迫，还要解开影月武魂的封印之谜，一场针对他的阴谋正在悄然展开。</p>
+                        </div>
+                        <div class="book-meta">
+                            <span>更新于：5小时前</span>
+                            <button class="read-btn">阅读全文</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="https://picsum.photos/seed/hero3/300/400" alt="封面">
+                    </div>
+                    <div class="book-info">
+                        <div>
+                            <h3 class="book-title">第三章：月影迷踪</h3>
+                            <div class="book-tags">
+                                <span class="tag">悬疑</span>
+                                <span class="tag">冒险</span>
+                            </div>
+                            <p class="book-desc">深夜的禁地传来异动，影月武魂似乎在呼唤着什么。林渊决定独自前往，却不知前方等待他的是机遇还是深渊。</p>
+                        </div>
+                        <div class="book-meta">
+                            <span>更新于：1天前</span>
+                            <button class="read-btn">阅读全文</button>
+                        </div>
+                    </div>
+                </article>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="read-btn" style="width: 100%;">加载更多章节</button>
+                </div>
+            </section>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="rank-list">
+                    <h4 class="rank-header">热门榜单</h4>
+                    <ul>
+                        <li class="rank-item">
+                            <span class="rank-num top-1">1</span>
+                            <span class="rank-title">武魂影月：宿命之轮</span>
+                            <span class="rank-score">9.8</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-num top-2">2</span>
+                            <span class="rank-title">影月传说：起源</span>
+                            <span class="rank-score">9.6</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-num top-3">3</span>
+                            <span class="rank-title">月下独酌</span>
+                            <span class="rank-score">9.4</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-num normal">4</span>
+                            <span class="rank-title">暗夜行者</span>
+                            <span class="rank-score">9.2</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-num normal">5</span>
+                            <span class="rank-title">影月诀</span>
+                            <span class="rank-score">9.0</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-num normal">6</span>
+                            <span class="rank-title">月光宝盒</span>
+                            <span class="rank-score">8.8</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="rank-list" style="margin-top: 2rem;">
+                    <h4 class="rank-header">热门标签</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <a href="#" class="tag">武魂觉醒</a>
+                        <a href="#" class="tag">暗夜系</a>
+                        <a href="#" class="tag">东方玄幻</a>
+                        <a href="#" class="tag">热血升级</a>
+                        <a href="#" class="tag">群像剧</a>
+                        <a href="#" class="tag">宿命论</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Characters Section -->
+        <section class="characters">
+            <div class="container">
+                <h2 class="section-title">主要角色</h2>
+                <div class="char-grid">
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/char1/200/200" alt="林渊">
+                        </div>
+                        <h4 class="char-name">林渊</h4>
+                        <p class="char-role">主角 / 影月武魂持有者</p>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/char2/200/200" alt="苏清月">
+                        </div>
+                        <h4 class="char-name">苏清月</h4>
+                        <p class="char-role">圣女 / 冰系武魂</p>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/char3/200/200" alt="夜枭">
+                        </div>
+                        <h4 class="char-name">夜枭</h4>
+                        <p class="char-role">神秘导师 / 剑修</p>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/char4/200/200" alt="墨影">
+                        </div>
+                        <h4 class="char-name">墨影</h4>
+                        <p class="char-role">反派 / 影杀组织首领</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>武魂影月</h4>
+                    <p>致力于打造最纯粹的东方玄幻阅读体验。在这里，每一个武魂都有灵魂，每一段故事都值得回味。</p>
+                </div>
+                <div class="footer-links">
+                    <h5>关于我们</h5>
+                    <ul>
+                        <li><a href="#">网站简介</a></li>
+                        <li><a href="#">加入团队</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>阅读指南</h5>
+                    <ul>
+                        <li><a href="#">阅读协议</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">反馈建议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>关注我们</h5>
+                    <ul>
+                        <li><a href="#">官方微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">Discord社区</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 武魂影月. All Rights Reserved. 本站内容仅供学习交流，请勿用于商业用途。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
